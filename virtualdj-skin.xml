@@ -1,0 +1,164 @@
+<Skin name="XDJ 480 Hardware" version="8" width="1920" height="480" nbdecks="2" image="2Decks.png">
+
+	<font name="Arial"/>
+
+	<visual>
+		<pos x="0" y="0"/>
+		<size width="1920" height="480"/>
+		<off color="#050505" shape="square"/>
+	</visual>
+
+	<onload action="set '$show_browser' 0"/>
+
+	<panel name="Browser_View" visible="var '$show_browser' 1">
+		<browser>
+			<pos x="10" y="70"/>
+			<size width="1900" height="400"/>
+		</browser>
+		
+		<visual>
+			<pos x="860" y="10"/>
+			<size width="200" height="50"/>
+			<off color="#1a1a1a" shape="square"/>
+		</visual>
+		<button action="set '$show_browser' 0">
+			<pos x="860" y="10"/>
+			<size width="200" height="50"/>
+			<text format="EXIT BROWSE" align="center" color="#ffffff" size="20" weight="bold" />
+		</button>
+	</panel>
+
+	<panel name="Performance_View" visible="var '$show_browser' 0">
+
+		<visual>
+			<pos x="0" y="0"/>
+			<size width="1920" height="140"/>
+			<off color="#0a0a0a" shape="square"/>
+		</visual>
+
+		<visual>
+			<pos x="830" y="45"/>
+			<size width="120" height="50"/>
+			<off color="#1a1a1a" shape="square"/>
+		</visual>
+		<button action="set '$show_browser' 1">
+			<pos x="830" y="45"/>
+			<size width="120" height="50"/>
+			<text format="BROWSE" align="center" color="#ffffff" size="18" weight="bold" />
+		</button>
+
+		<visual>
+			<pos x="970" y="45"/>
+			<size width="120" height="50"/>
+			<off color="#1a1a1a" shape="square"/>
+		</visual>
+		<button action="settings">
+			<pos x="970" y="45"/>
+			<size width="120" height="50"/>
+			<text format="SETTINGS" align="center" color="#ffffff" size="18" weight="bold" />
+		</button>
+
+		<deck deck="left">
+			<cover>
+				<pos x="10" y="10"/>
+				<size width="120" height="120"/>
+			</cover>
+			
+			<textzone>
+				<pos x="145" y="10"/>
+				<size width="650" height="40"/>
+				<text format="%Title" size="36" color="#ffffff" weight="bold" align="left" scroll="yes"/>
+			</textzone>
+			<textzone>
+				<pos x="145" y="55"/>
+				<size width="650" height="30"/>
+				<text format="%Author" size="24" color="#888888" align="left" scroll="yes"/>
+			</textzone>
+			
+			<textzone>
+				<pos x="145" y="95"/>
+				<size width="150" height="40"/>
+				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="310" y="95"/>
+				<size width="180" height="40"/>
+				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="510" y="105"/>
+				<size width="100" height="30"/>
+				<text format="%key" size="24" color="#00ffcc" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="630" y="105"/>
+				<size width="120" height="30"/>
+				<text format="%pitch" size="24" color="#ffffff" align="left"/>
+			</textzone>
+		</deck>
+
+		<deck deck="right">
+			<cover>
+				<pos x="1790" y="10"/>
+				<size width="120" height="120"/>
+			</cover>
+			
+			<textzone>
+				<pos x="1125" y="10"/>
+				<size width="650" height="40"/>
+				<text format="%Title" size="36" color="#ffffff" weight="bold" align="right" scroll="yes"/>
+			</textzone>
+			<textzone>
+				<pos x="1125" y="55"/>
+				<size width="650" height="30"/>
+				<text format="%Author" size="24" color="#888888" align="right" scroll="yes"/>
+			</textzone>
+			
+			<textzone>
+				<pos x="1625" y="95"/>
+				<size width="150" height="40"/>
+				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1430" y="95"/>
+				<size width="180" height="40"/>
+				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1310" y="105"/>
+				<size width="100" height="30"/>
+				<text format="%key" size="24" color="#00ffcc" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1170" y="105"/>
+				<size width="120" height="30"/>
+				<text format="%pitch" size="24" color="#ffffff" align="right"/>
+			</textzone>
+		</deck>
+
+		<scratchwave deck="left" orientation="horizontal">
+			<pos x="0" y="140"/>
+			<size width="1920" height="170"/>
+			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
+			<gridlines color="#333333" width="1" transparency="0.5"/>
+			<overlay>
+				<pos x="958" y="0"/>
+				<size width="4" height="170"/>
+				<background color="#ff3333" shape="square"/>
+			</overlay>
+		</scratchwave>
+
+		<scratchwave deck="right" orientation="horizontal">
+			<pos x="0" y="310"/>
+			<size width="1920" height="170"/>
+			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
+			<gridlines color="#333333" width="1" transparency="0.5"/>
+			<overlay>
+				<pos x="958" y="0"/>
+				<size width="4" height="170"/>
+				<background color="#ff3333" shape="square"/>
+			</overlay>
+		</scratchwave>
+
+	</panel>
+</Skin>
