@@ -40,6 +40,25 @@
 - [ ] **5.2. Background & Text:** Add a `<rectangle>` for background and static `<text>` titles.
 - [ ] **5.3. Setting Toggles:** Implement buttons mapped to skin options (e.g., toggle vinyl mode, show/hide key match).
 
+## Phase 7: Advanced Standalone UX Enhancements
+
+### 7.1. Advanced Dual-Pane Browser with Touch Preview
+*   **Split View:** Divide the `BROWSE` view into a 30% left pane (Folder/Playlist Tree) and 70% right pane (Track List).
+*   **Touch Preview Waveform:** Add a horizontal `browser_preview` waveform at the top or bottom of the Browse view. Users can tap the waveform to audition a track in their headphones before loading.
+
+### 7.2. Dynamic Multi-Mode Performance Pads
+*   **Mode Selectors:** Add a row of 3-4 small toggle buttons above the current pad section (e.g., `HOTCUE`, `LOOP`, `STEMS`).
+*   **Dynamic Grid:** Map the existing 4 pads to change functionality based on the selected mode (using VDJ action scripts like `pad_mode 'hotcues'` and `pad 1`).
+
+### 7.3. Professional Visual Feedback Overlays (Phase & Status)
+*   **Phase Meters:** Add CDJ-style phase meter blocks directly above or between the full-width stacked parallel waveforms to visually indicate beat alignment.
+*   **Track End Warning:** Add a red flashing overlay or border that triggers when `time_remain < 30000` (last 30 seconds).
+*   **On-Air Indicators:** Add subtle visual highlights (e.g., illuminating the deck number or waveform border in red) when the deck's volume fader is up and it is playing.
+
+### 7.4. Dedicated Auto-Loop Control Cluster
+*   **Layout:** Squeeze a compact loop module next to the deck info or pad section in the bottom half of the Performance view.
+*   **Controls:** Include a large `4 BEAT` auto-loop button, flanked by `< 1/2` (halve) and `2X >` (double) buttons, and an active loop toggle.
+
 ## Phase 6: Polish & Legacy Syntax Compliance
 - [ ] **6.1. Validation:** Ensure no modern VDJ `<group>` tags are used; rely solely on `<panel>` and direct visibility parameters (`visibility="$show_browser"`).
 - [ ] **6.2. Z-Index Checking:** Confirm `<panel>` ordering so navigation sits above or below views correctly.
