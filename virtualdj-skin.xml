@@ -126,11 +126,11 @@
 			<size width="300" height="40"/>
 			<text format="EQ Mode" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'eqMode' +1">
+		<button action="eq_mode +1">
 			<pos x="950" y="100"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text action="eq_mode" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -171,7 +171,7 @@
 			<pos x="950" y="160"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text action="setting 'needleLock'" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -183,7 +183,7 @@
 			<pos x="1500" y="160"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text action="setting 'recordFormat'" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 		
 		<!-- Settings Options Row 3 -->
@@ -210,7 +210,7 @@
 			<pos x="950" y="220"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text action="setting 'keyDisplay'" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -222,7 +222,7 @@
 			<pos x="1500" y="220"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text action="setting 'recordAutoStart'" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 	</panel>
 
