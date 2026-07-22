@@ -126,11 +126,11 @@
 			<size width="300" height="40"/>
 			<text format="EQ Mode" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'eqMode'">
+		<button action="setting 'eqMode' +1">
 			<pos x="950" y="100"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text action="setting 'eqMode'" size="20" color="#ffffff" align="center"/>
+			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -143,7 +143,8 @@
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
 			<on color="#ff3333" shape="square"/>
-			<text action="record ? 'RECORDING' : 'REC'" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text format="RECORDING" size="20" color="#ffffff" weight="bold" align="center" visible="record" />
+			<text format="REC" size="20" color="#ffffff" weight="bold" align="center" visible="!record" />
 		</button>
 		
 		<!-- Settings Options Row 2 -->
@@ -157,7 +158,8 @@
 			<size width="100" height="40"/>
 			<off color="#222222" shape="square"/>
 			<on color="#0055ff" shape="square"/>
-			<text action="global_quantize ? 'ON' : 'OFF'" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text format="ON" size="20" color="#ffffff" weight="bold" align="center" visible="global_quantize" />
+			<text format="OFF" size="20" color="#aaaaaa" weight="bold" align="center" visible="!global_quantize" />
 		</button>
 
 		<textzone>
@@ -165,11 +167,11 @@
 			<size width="300" height="40"/>
 			<text format="Needle Lock" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'needleLock'">
+		<button action="setting 'needleLock' +1">
 			<pos x="950" y="160"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text action="setting 'needleLock'" size="20" color="#ffffff" align="center"/>
+			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -177,11 +179,11 @@
 			<size width="300" height="40"/>
 			<text format="Record Format" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'recordFormat'">
+		<button action="setting 'recordFormat' +1">
 			<pos x="1500" y="160"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text action="setting 'recordFormat'" size="20" color="#ffffff" align="center"/>
+			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 		
 		<!-- Settings Options Row 3 -->
@@ -195,7 +197,8 @@
 			<size width="100" height="40"/>
 			<off color="#222222" shape="square"/>
 			<on color="#0055ff" shape="square"/>
-			<text action="slip_mode ? 'ON' : 'OFF'" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text format="ON" size="20" color="#ffffff" weight="bold" align="center" visible="slip_mode" />
+			<text format="OFF" size="20" color="#aaaaaa" weight="bold" align="center" visible="!slip_mode" />
 		</button>
 
 		<textzone>
@@ -207,7 +210,7 @@
 			<pos x="950" y="220"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text action="setting 'keyDisplay'" size="20" color="#ffffff" align="center"/>
+			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -215,11 +218,11 @@
 			<size width="300" height="40"/>
 			<text format="Auto Record" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'recordAutoStart'">
+		<button action="setting 'recordAutoStart' +1">
 			<pos x="1500" y="220"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text action="setting 'recordAutoStart'" size="20" color="#ffffff" align="center"/>
+			<text format="CYCLE" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 	</panel>
 
