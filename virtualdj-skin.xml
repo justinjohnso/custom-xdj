@@ -39,6 +39,18 @@
 			<text format="BROWSE" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
 
+		<!-- System Settings Button -->
+		<visual>
+			<pos x="10" y="320"/>
+			<size width="80" height="80"/>
+			<off color="#222222" shape="square"/>
+		</visual>
+		<button action="settings">
+			<pos x="10" y="320"/>
+			<size width="80" height="80"/>
+			<text format="SYSTEM" align="center" color="#ffffff" size="14" weight="bold" />
+		</button>
+
 		<!-- Settings Button -->
 		<visual>
 			<pos x="10" y="220"/>
@@ -54,6 +66,12 @@
 
 	<!-- Phase 3: Main Performance View -->
 	<panel name="Performance_View" visible="var '$show_performance' 1">
+		
+		<visual>
+			<pos x="100" y="0"/>
+			<size width="1820" height="480"/>
+			<off color="#050505" shape="square"/>
+		</visual>
 
 		<!-- 3.1 Waveform Restructuring (Top) -->
 		<scratchwave deck="left" orientation="horizontal" visible="var '$show_performance' 1">
@@ -89,41 +107,63 @@
 
 		<deck deck="left">
 			<cover>
-				<pos x="110" y="250"/>
-				<size width="120" height="120"/>
+				<pos x="110" y="260"/>
+				<size width="90" height="90"/>
 			</cover>
 			
 			<textzone>
-				<pos x="240" y="250"/>
+				<pos x="230" y="250"/>
 				<size width="500" height="40"/>
-				<text format="%Title" size="36" color="#ffffff" weight="bold" align="left" scroll="yes"/>
+				<text format="%Title" size="28" color="#ffffff" weight="bold" align="left" scroll="yes"/>
 			</textzone>
 			<textzone>
-				<pos x="240" y="290"/>
+				<pos x="230" y="290"/>
 				<size width="500" height="30"/>
-				<text format="%Author" size="24" color="#888888" align="left" scroll="yes"/>
+				<text format="%Author" size="18" color="#888888" align="left" scroll="yes"/>
 			</textzone>
 			
 			<textzone>
-				<pos x="240" y="330"/>
-				<size width="150" height="40"/>
-				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="left"/>
+				<pos x="230" y="330"/>
+				<size width="120" height="40"/>
+				<text format="%Pbpmex" size="30" color="#00ffcc" weight="bold" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="400" y="330"/>
+				<pos x="360" y="330"/>
 				<size width="150" height="40"/>
-				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="left"/>
+				<text action="get_time 'remain'" size="30" color="#ffffff" weight="bold" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="560" y="340"/>
+				<pos x="520" y="340"/>
 				<size width="80" height="30"/>
-				<text format="%key" size="24" color="#00ffcc" align="left"/>
+				<text format="%key" size="20" color="#00ffcc" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="650" y="340"/>
+				<pos x="610" y="340"/>
 				<size width="90" height="30"/>
-				<text format="%pitch" size="24" color="#ffffff" align="left"/>
+				<text format="%pitch" size="20" color="#ffffff" align="left"/>
 			</textzone>
+
+			<!-- PLAY & CUE -->
+			<visual>
+				<pos x="230" y="380"/>
+				<size width="90" height="60"/>
+				<off color="#2a2a2a" shape="square"/>
+			</visual>
+			<button action="play_pause">
+				<pos x="230" y="380"/>
+				<size width="90" height="60"/>
+				<text format="PLAY" size="20" color="#00ff00" weight="bold" align="center"/>
+			</button>
+			<visual>
+				<pos x="330" y="380"/>
+				<size width="90" height="60"/>
+				<off color="#2a2a2a" shape="square"/>
+			</visual>
+			<button action="cue">
+				<pos x="330" y="380"/>
+				<size width="90" height="60"/>
+				<text format="CUE" size="20" color="#ffaa00" weight="bold" align="center"/>
+			</button>
 		</deck>
 
 		<!-- 3.3 Center/Mixer Info (Bottom Center) -->
@@ -142,41 +182,63 @@
 
 		<deck deck="right">
 			<cover>
-				<pos x="1790" y="250"/>
-				<size width="120" height="120"/>
+				<pos x="1710" y="260"/>
+				<size width="90" height="90"/>
 			</cover>
 			
 			<textzone>
-				<pos x="1280" y="250"/>
+				<pos x="1190" y="250"/>
 				<size width="500" height="40"/>
-				<text format="%Title" size="36" color="#ffffff" weight="bold" align="right" scroll="yes"/>
+				<text format="%Title" size="28" color="#ffffff" weight="bold" align="right" scroll="yes"/>
 			</textzone>
 			<textzone>
-				<pos x="1280" y="290"/>
+				<pos x="1190" y="290"/>
 				<size width="500" height="30"/>
-				<text format="%Author" size="24" color="#888888" align="right" scroll="yes"/>
+				<text format="%Author" size="18" color="#888888" align="right" scroll="yes"/>
 			</textzone>
 			
 			<textzone>
-				<pos x="1630" y="330"/>
-				<size width="150" height="40"/>
-				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="right"/>
+				<pos x="1560" y="330"/>
+				<size width="120" height="40"/>
+				<text format="%Pbpmex" size="30" color="#00ffcc" weight="bold" align="right"/>
 			</textzone>
 			<textzone>
-				<pos x="1470" y="330"/>
+				<pos x="1390" y="330"/>
 				<size width="150" height="40"/>
-				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="right"/>
+				<text action="get_time 'remain'" size="30" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
 			<textzone>
-				<pos x="1380" y="340"/>
+				<pos x="1290" y="340"/>
 				<size width="80" height="30"/>
-				<text format="%key" size="24" color="#00ffcc" align="right"/>
+				<text format="%key" size="20" color="#00ffcc" align="right"/>
 			</textzone>
 			<textzone>
-				<pos x="1280" y="340"/>
+				<pos x="1180" y="340"/>
 				<size width="90" height="30"/>
-				<text format="%pitch" size="24" color="#ffffff" align="right"/>
+				<text format="%pitch" size="20" color="#ffffff" align="right"/>
 			</textzone>
+
+			<!-- PLAY & CUE -->
+			<visual>
+				<pos x="1590" y="380"/>
+				<size width="90" height="60"/>
+				<off color="#2a2a2a" shape="square"/>
+			</visual>
+			<button action="play_pause">
+				<pos x="1590" y="380"/>
+				<size width="90" height="60"/>
+				<text format="PLAY" size="20" color="#00ff00" weight="bold" align="center"/>
+			</button>
+			<visual>
+				<pos x="1490" y="380"/>
+				<size width="90" height="60"/>
+				<off color="#2a2a2a" shape="square"/>
+			</visual>
+			<button action="cue">
+				<pos x="1490" y="380"/>
+				<size width="90" height="60"/>
+				<text format="CUE" size="20" color="#ffaa00" weight="bold" align="center"/>
+			</button>
 		</deck>
 	</panel>
 
@@ -187,9 +249,13 @@
 			<size width="1820" height="380"/>
 			<off color="#111111" shape="square"/>
 		</visual>
-		<browser>
+		<folder>
 			<pos x="110" y="10"/>
-			<size width="1800" height="360"/>
+			<size width="400" height="360"/>
+		</folder>
+		<browser>
+			<pos x="520" y="10"/>
+			<size width="1390" height="360"/>
 		</browser>
 	</panel>
 
@@ -322,10 +388,11 @@
 				<size width="180" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
-			<rhythmwave type="horizontal" colors="rgb">
+			<songpos>
 				<pos x="110" y="440"/>
 				<size width="750" height="30"/>
-			</rhythmwave>
+				<colors color="#555555" pos="#00ffcc"/>
+			</songpos>
 			<visual>
 				<pos x="880" y="390"/>
 				<size width="100" height="80"/>
@@ -360,10 +427,11 @@
 				<size width="180" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
-			<rhythmwave type="horizontal" colors="rgb">
+			<songpos>
 				<pos x="1020" y="440"/>
 				<size width="750" height="30"/>
-			</rhythmwave>
+				<colors color="#555555" pos="#00ffcc"/>
+			</songpos>
 			<visual>
 				<pos x="1790" y="390"/>
 				<size width="100" height="80"/>
