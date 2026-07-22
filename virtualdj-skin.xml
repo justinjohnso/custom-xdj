@@ -1,4 +1,4 @@
-<Skin name="XDJ 480 Hardware" version="8" width="1920" height="480" stretch="yes" ratio="none" nbdecks="2" image="2Decks.png">
+<Skin name="XDJ 480 Hardware" version="8" width="1920" height="480" stretch="yes" ratio="none" no_drag="yes" nbdecks="2" image="2Decks.png">
 
 	<font name="Arial"/>
 
