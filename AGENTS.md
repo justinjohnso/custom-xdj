@@ -21,3 +21,7 @@ This document outlines the strict technical constraints and design guidelines fo
 - **Root Header Declaration:** The skin's XML file (e.g., `XDJ480.xml`) must declare a valid sprite sheet in its root header: `<Skin image="2Decks.png" ...>`.
 - **Mandatory Sprite Sheet:** Even if all UI elements are rendered dynamically via XML, the `2Decks.png` file must physically exist in the skin's directory. Removing it or deleting the root declaration will cause a fatal parser crash.
 - **Flat Architecture:** VirtualDJ's legacy parser is highly strict. Keep `XDJ480.xml` and `2Decks.png` in a single, flat directory. Do not place images or assets in subfolders.
+
+## 5. Repository & Git Workflow
+- **Commit Messages:** Commit messages must be written entirely in **lowercase**. They should be direct and descriptive, without conventional prefixes (like "feat:", "fix:"). Example: `fix ui ghosting and add play buttons`.
+- **Artifacts:** Keep the root directory clean. Planning files, tasks, and scratchpads belong in the `.specs/` directory.
