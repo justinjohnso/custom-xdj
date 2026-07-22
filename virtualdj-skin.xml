@@ -75,7 +75,7 @@
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
-				<pos x="+908" y="+190"/>
+				<pos x="+908" y="+0"/>
 				<size width="4" height="190"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
