@@ -16,51 +16,38 @@
 
 		<!-- 2.2 Navigation Buttons -->
 		<!-- Performance Button -->
-		<visual>
-			<pos x="10" y="20"/>
+		<button action="set '$show_performance' 1 &amp; set '$show_browser' 0 &amp; set '$show_settings' 0">
+			<pos x="10" y="80"/>
 			<size width="80" height="80"/>
 			<off color="#222222" shape="square"/>
-		</visual>
-		<button action="set '$show_performance' 1 &amp; set '$show_browser' 0 &amp; set '$show_settings' 0">
-			<pos x="10" y="20"/>
-			<size width="80" height="80"/>
-			<text format="PERF" align="center" color="#ffffff" size="14" weight="bold" />
+			<on color="#0055ff" shape="square" visible="var '$show_performance' 1"/>
+			<text format="PERFORM" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
 
 		<!-- Browser Button -->
-		<visual>
-			<pos x="10" y="120"/>
+		<button action="set '$show_performance' 0 &amp; set '$show_browser' 1 &amp; set '$show_settings' 0">
+			<pos x="10" y="180"/>
 			<size width="80" height="80"/>
 			<off color="#222222" shape="square"/>
-		</visual>
-		<button action="set '$show_performance' 0 &amp; set '$show_browser' 1 &amp; set '$show_settings' 0">
-			<pos x="10" y="120"/>
-			<size width="80" height="80"/>
+			<on color="#0055ff" shape="square" visible="var '$show_browser' 1"/>
 			<text format="BROWSE" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
 
-		<!-- System Settings Button -->
-		<visual>
-			<pos x="10" y="320"/>
+		<!-- Settings Button -->
+		<button action="set '$show_performance' 0 &amp; set '$show_browser' 0 &amp; set '$show_settings' 1">
+			<pos x="10" y="280"/>
 			<size width="80" height="80"/>
 			<off color="#222222" shape="square"/>
-		</visual>
-		<button action="settings">
-			<pos x="10" y="320"/>
-			<size width="80" height="80"/>
-			<text format="SYSTEM" align="center" color="#ffffff" size="14" weight="bold" />
+			<on color="#0055ff" shape="square" visible="var '$show_settings' 1"/>
+			<text format="SETTINGS" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
 
-		<!-- Settings Button -->
-		<visual>
-			<pos x="10" y="220"/>
+		<!-- System Settings Button -->
+		<button action="settings">
+			<pos x="10" y="380"/>
 			<size width="80" height="80"/>
 			<off color="#222222" shape="square"/>
-		</visual>
-		<button action="set '$show_performance' 0 &amp; set '$show_browser' 0 &amp; set '$show_settings' 1">
-			<pos x="10" y="220"/>
-			<size width="80" height="80"/>
-			<text format="SETTINGS" align="center" color="#ffffff" size="14" weight="bold" />
+			<text format="SYSTEM" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
 	</panel>
 
@@ -101,143 +88,99 @@
 		<!-- 3.2 Deck 1 Info (Bottom Left) -->
 		<visual>
 			<pos x="100" y="240"/>
-			<size width="650" height="240"/>
+			<size width="650" height="140"/>
 			<off color="#050505" shape="square"/>
 		</visual>
 
 		<deck deck="left">
 			<cover>
 				<pos x="110" y="260"/>
-				<size width="90" height="90"/>
+				<size width="80" height="80"/>
 			</cover>
 			
 			<textzone>
-				<pos x="230" y="250"/>
-				<size width="500" height="40"/>
-				<text format="%Title" size="28" color="#ffffff" weight="bold" align="left" scroll="yes"/>
-			</textzone>
-			<textzone>
-				<pos x="230" y="290"/>
-				<size width="500" height="30"/>
-				<text format="%Author" size="18" color="#888888" align="left" scroll="yes"/>
-			</textzone>
-			
-			<textzone>
-				<pos x="230" y="330"/>
-				<size width="120" height="40"/>
-				<text format="%Pbpmex" size="30" color="#00ffcc" weight="bold" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="360" y="330"/>
-				<size width="150" height="40"/>
-				<text action="get_time 'remain'" size="30" color="#ffffff" weight="bold" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="520" y="340"/>
-				<size width="80" height="30"/>
-				<text format="%key" size="20" color="#00ffcc" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="610" y="340"/>
-				<size width="90" height="30"/>
-				<text format="%pitch" size="20" color="#ffffff" align="left"/>
+				<pos x="210" y="260"/>
+				<size width="200" height="30"/>
+				<text format="%pitch" size="24" color="#00ffcc" weight="bold" align="left"/>
 			</textzone>
 
-			<!-- PLAY & CUE -->
-			<visual>
-				<pos x="230" y="380"/>
-				<size width="90" height="60"/>
-				<off color="#2a2a2a" shape="square"/>
-			</visual>
-			<button action="play_pause">
-				<pos x="230" y="380"/>
-				<size width="90" height="60"/>
-				<text format="PLAY" size="20" color="#00ff00" weight="bold" align="center"/>
+			<!-- 4 Hotcue buttons -->
+			<button action="hot_cue 1">
+				<pos x="210" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="1" size="20" color="#ffffff" weight="bold" align="center"/>
 			</button>
-			<visual>
-				<pos x="330" y="380"/>
-				<size width="90" height="60"/>
-				<off color="#2a2a2a" shape="square"/>
-			</visual>
-			<button action="cue">
-				<pos x="330" y="380"/>
-				<size width="90" height="60"/>
-				<text format="CUE" size="20" color="#ffaa00" weight="bold" align="center"/>
+			<button action="hot_cue 2">
+				<pos x="320" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="2" size="20" color="#ffffff" weight="bold" align="center"/>
+			</button>
+			<button action="hot_cue 3">
+				<pos x="430" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="3" size="20" color="#ffffff" weight="bold" align="center"/>
+			</button>
+			<button action="hot_cue 4">
+				<pos x="540" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="4" size="20" color="#ffffff" weight="bold" align="center"/>
 			</button>
 		</deck>
 
 		<!-- 3.3 Center/Mixer Info (Bottom Center) -->
 		<visual>
 			<pos x="750" y="240"/>
-			<size width="520" height="240"/>
+			<size width="520" height="140"/>
 			<off color="#0a0a0a" shape="square"/>
 		</visual>
 
 		<!-- 3.4 Deck 2 Info (Bottom Right) -->
 		<visual>
 			<pos x="1270" y="240"/>
-			<size width="650" height="240"/>
+			<size width="650" height="140"/>
 			<off color="#050505" shape="square"/>
 		</visual>
 
 		<deck deck="right">
 			<cover>
-				<pos x="1710" y="260"/>
-				<size width="90" height="90"/>
+				<pos x="1730" y="260"/>
+				<size width="80" height="80"/>
 			</cover>
 			
 			<textzone>
-				<pos x="1190" y="250"/>
-				<size width="500" height="40"/>
-				<text format="%Title" size="28" color="#ffffff" weight="bold" align="right" scroll="yes"/>
-			</textzone>
-			<textzone>
-				<pos x="1190" y="290"/>
-				<size width="500" height="30"/>
-				<text format="%Author" size="18" color="#888888" align="right" scroll="yes"/>
-			</textzone>
-			
-			<textzone>
-				<pos x="1560" y="330"/>
-				<size width="120" height="40"/>
-				<text format="%Pbpmex" size="30" color="#00ffcc" weight="bold" align="right"/>
-			</textzone>
-			<textzone>
-				<pos x="1390" y="330"/>
-				<size width="150" height="40"/>
-				<text action="get_time 'remain'" size="30" color="#ffffff" weight="bold" align="right"/>
-			</textzone>
-			<textzone>
-				<pos x="1290" y="340"/>
-				<size width="80" height="30"/>
-				<text format="%key" size="20" color="#00ffcc" align="right"/>
-			</textzone>
-			<textzone>
-				<pos x="1180" y="340"/>
-				<size width="90" height="30"/>
-				<text format="%pitch" size="20" color="#ffffff" align="right"/>
+				<pos x="1510" y="260"/>
+				<size width="200" height="30"/>
+				<text format="%pitch" size="24" color="#00ffcc" weight="bold" align="right"/>
 			</textzone>
 
-			<!-- PLAY & CUE -->
-			<visual>
-				<pos x="1590" y="380"/>
-				<size width="90" height="60"/>
-				<off color="#2a2a2a" shape="square"/>
-			</visual>
-			<button action="play_pause">
-				<pos x="1590" y="380"/>
-				<size width="90" height="60"/>
-				<text format="PLAY" size="20" color="#00ff00" weight="bold" align="center"/>
+			<!-- 4 Hotcue buttons -->
+			<button action="hot_cue 1">
+				<pos x="1290" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="1" size="20" color="#ffffff" weight="bold" align="center"/>
 			</button>
-			<visual>
-				<pos x="1490" y="380"/>
-				<size width="90" height="60"/>
-				<off color="#2a2a2a" shape="square"/>
-			</visual>
-			<button action="cue">
-				<pos x="1490" y="380"/>
-				<size width="90" height="60"/>
-				<text format="CUE" size="20" color="#ffaa00" weight="bold" align="center"/>
+			<button action="hot_cue 2">
+				<pos x="1400" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="2" size="20" color="#ffffff" weight="bold" align="center"/>
+			</button>
+			<button action="hot_cue 3">
+				<pos x="1510" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="3" size="20" color="#ffffff" weight="bold" align="center"/>
+			</button>
+			<button action="hot_cue 4">
+				<pos x="1620" y="300"/>
+				<size width="100" height="40"/>
+				<off color="#222222" shape="square"/>
+				<text format="4" size="20" color="#ffffff" weight="bold" align="center"/>
 			</button>
 		</deck>
 	</panel>
@@ -249,13 +192,9 @@
 			<size width="1820" height="380"/>
 			<off color="#111111" shape="square"/>
 		</visual>
-		<folder>
-			<pos x="110" y="10"/>
-			<size width="400" height="360"/>
-		</folder>
 		<browser>
-			<pos x="520" y="10"/>
-			<size width="1390" height="360"/>
+			<pos x="110" y="10"/>
+			<size width="1800" height="360"/>
 		</browser>
 	</panel>
 
@@ -272,14 +211,14 @@
 			<text format="SETTINGS" size="36" color="#ffffff" weight="bold" align="center"/>
 		</textzone>
 		
-		<!-- Settings Options -->
+		<!-- Settings Options Row 1 -->
 		<textzone>
-			<pos x="200" y="100"/>
+			<pos x="150" y="100"/>
 			<size width="300" height="40"/>
 			<text format="Show Pads" size="24" color="#ffffff" align="left"/>
 		</textzone>
 		<button action="toggle '$show_pads'">
-			<pos x="500" y="100"/>
+			<pos x="450" y="100"/>
 			<size width="100" height="40"/>
 			<off color="#333333" shape="square"/>
 			<on color="#0055ff" shape="square" visible="var '$show_pads' 1"/>
@@ -300,14 +239,27 @@
 			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$blink_time' 1"/>
 			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$blink_time' 0"/>
 		</button>
-		
+
 		<textzone>
-			<pos x="200" y="160"/>
+			<pos x="1150" y="100"/>
+			<size width="300" height="40"/>
+			<text format="EQ Mode" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle 'eqMode'">
+			<pos x="1450" y="100"/>
+			<size width="150" height="40"/>
+			<off color="#333333" shape="square"/>
+			<text format="TOGGLE" size="20" color="#ffffff" align="center"/>
+		</button>
+		
+		<!-- Settings Options Row 2 -->
+		<textzone>
+			<pos x="150" y="160"/>
 			<size width="300" height="40"/>
 			<text format="Key Display" size="24" color="#ffffff" align="left"/>
 		</textzone>
 		<button action="toggle '$key_display'">
-			<pos x="500" y="160"/>
+			<pos x="450" y="160"/>
 			<size width="150" height="40"/>
 			<off color="#333333" shape="square"/>
 			<on color="#0055ff" shape="square" visible="var '$key_display' 1"/>
@@ -330,12 +282,25 @@
 		</button>
 		
 		<textzone>
-			<pos x="200" y="220"/>
+			<pos x="1150" y="160"/>
+			<size width="300" height="40"/>
+			<text format="Quantize" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="quantize">
+			<pos x="1450" y="160"/>
+			<size width="100" height="40"/>
+			<off color="#333333" shape="square"/>
+			<text format="TOGGLE" size="20" color="#ffffff" align="center"/>
+		</button>
+
+		<!-- Settings Options Row 3 -->
+		<textzone>
+			<pos x="150" y="220"/>
 			<size width="300" height="40"/>
 			<text format="Auto Key Match" size="24" color="#ffffff" align="left"/>
 		</textzone>
 		<button action="toggle '$auto_key'">
-			<pos x="500" y="220"/>
+			<pos x="450" y="220"/>
 			<size width="100" height="40"/>
 			<off color="#333333" shape="square"/>
 			<on color="#0055ff" shape="square" visible="var '$auto_key' 1"/>
@@ -356,10 +321,23 @@
 			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$needle_lock' 1"/>
 			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$needle_lock' 0"/>
 		</button>
+
+		<textzone>
+			<pos x="1150" y="220"/>
+			<size width="300" height="40"/>
+			<text format="Slip Mode" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="slip_mode">
+			<pos x="1450" y="220"/>
+			<size width="100" height="40"/>
+			<off color="#333333" shape="square"/>
+			<text format="TOGGLE" size="20" color="#ffffff" align="center"/>
+		</button>
+
 	</panel>
 
-	<!-- Mini-Decks Panel (Visible in Auxiliary Views) -->
-	<panel name="Mini_Decks" visible="var '$show_performance' 0">
+	<!-- Mini-Decks Panel (Always Visible) -->
+	<panel name="Mini_Decks">
 		<visual>
 			<pos x="100" y="380"/>
 			<size width="1820" height="100"/>
@@ -370,78 +348,98 @@
 		<deck deck="left">
 			<textzone>
 				<pos x="110" y="390"/>
-				<size width="380" height="40"/>
+				<size width="300" height="40"/>
 				<text format="%Title" size="24" color="#ffffff" weight="bold" align="left" scroll="yes"/>
 			</textzone>
 			<textzone>
-				<pos x="500" y="390"/>
+				<pos x="420" y="390"/>
 				<size width="80" height="40"/>
 				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="590" y="390"/>
+				<pos x="510" y="390"/>
 				<size width="80" height="40"/>
 				<text format="%key" size="24" color="#00ffcc" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="680" y="390"/>
-				<size width="180" height="40"/>
+				<pos x="600" y="390"/>
+				<size width="120" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
-			<songpos>
-				<pos x="110" y="440"/>
-				<size width="750" height="30"/>
-				<colors color="#555555" pos="#00ffcc"/>
-			</songpos>
-			<visual>
-				<pos x="880" y="390"/>
-				<size width="100" height="80"/>
+			
+			<button action="play_pause">
+				<pos x="730" y="390"/>
+				<size width="80" height="40"/>
 				<off color="#2a2a2a" shape="square"/>
-			</visual>
-			<button action="load">
-				<pos x="880" y="390"/>
-				<size width="100" height="80"/>
-				<text format="LOAD 1" size="20" color="#ffffff" weight="bold" align="center"/>
+				<text format="PLAY" size="18" color="#00ff00" weight="bold" align="center"/>
 			</button>
+			<button action="cue">
+				<pos x="820" y="390"/>
+				<size width="80" height="40"/>
+				<off color="#2a2a2a" shape="square"/>
+				<text format="CUE" size="18" color="#ffaa00" weight="bold" align="center"/>
+			</button>
+			<button action="load">
+				<pos x="910" y="390"/>
+				<size width="80" height="40"/>
+				<off color="#2a2a2a" shape="square"/>
+				<text format="LOAD" size="18" color="#ffffff" weight="bold" align="center"/>
+			</button>
+
+			<waveform>
+				<pos x="110" y="440"/>
+				<size width="880" height="30"/>
+				<colors color="#555555" pos="#00ffcc"/>
+			</waveform>
 		</deck>
 
 		<!-- Deck 2 Mini -->
 		<deck deck="right">
-			<textzone>
-				<pos x="1020" y="390"/>
-				<size width="380" height="40"/>
-				<text format="%Title" size="24" color="#ffffff" weight="bold" align="left" scroll="yes"/>
-			</textzone>
-			<textzone>
-				<pos x="1410" y="390"/>
-				<size width="80" height="40"/>
-				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="1500" y="390"/>
-				<size width="80" height="40"/>
-				<text format="%key" size="24" color="#00ffcc" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="1590" y="390"/>
-				<size width="180" height="40"/>
-				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
-			</textzone>
-			<songpos>
-				<pos x="1020" y="440"/>
-				<size width="750" height="30"/>
-				<colors color="#555555" pos="#00ffcc"/>
-			</songpos>
-			<visual>
-				<pos x="1790" y="390"/>
-				<size width="100" height="80"/>
-				<off color="#2a2a2a" shape="square"/>
-			</visual>
 			<button action="load">
-				<pos x="1790" y="390"/>
-				<size width="100" height="80"/>
-				<text format="LOAD 2" size="20" color="#ffffff" weight="bold" align="center"/>
+				<pos x="1030" y="390"/>
+				<size width="80" height="40"/>
+				<off color="#2a2a2a" shape="square"/>
+				<text format="LOAD" size="18" color="#ffffff" weight="bold" align="center"/>
 			</button>
+			<button action="cue">
+				<pos x="1120" y="390"/>
+				<size width="80" height="40"/>
+				<off color="#2a2a2a" shape="square"/>
+				<text format="CUE" size="18" color="#ffaa00" weight="bold" align="center"/>
+			</button>
+			<button action="play_pause">
+				<pos x="1210" y="390"/>
+				<size width="80" height="40"/>
+				<off color="#2a2a2a" shape="square"/>
+				<text format="PLAY" size="18" color="#00ff00" weight="bold" align="center"/>
+			</button>
+
+			<textzone>
+				<pos x="1300" y="390"/>
+				<size width="120" height="40"/>
+				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="1430" y="390"/>
+				<size width="80" height="40"/>
+				<text format="%key" size="24" color="#00ffcc" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1520" y="390"/>
+				<size width="80" height="40"/>
+				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1610" y="390"/>
+				<size width="300" height="40"/>
+				<text format="%Title" size="24" color="#ffffff" weight="bold" align="right" scroll="yes"/>
+			</textzone>
+			
+			<waveform>
+				<pos x="1030" y="440"/>
+				<size width="880" height="30"/>
+				<colors color="#555555" pos="#00ffcc"/>
+			</waveform>
 		</deck>
 	</panel>
 
