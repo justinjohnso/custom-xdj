@@ -137,6 +137,32 @@
 			<size width="520" height="140"/>
 			<off color="#0a0a0a" shape="square"/>
 		</visual>
+		
+		<!-- EQ Mode Display & Toggle -->
+		<textzone>
+			<pos x="860" y="250"/>
+			<size width="300" height="30"/>
+			<text format="EQ / STEMS MODE" size="18" color="#888888" align="center"/>
+		</textzone>
+		<button action="setting 'eqMode'">
+			<pos x="860" y="280"/>
+			<size width="300" height="40"/>
+			<off color="#222222" shape="square"/>
+			<text action="setting 'eqMode'" size="24" color="#00ffcc" weight="bold" align="center"/>
+		</button>
+
+		<!-- Crossfader -->
+		<textzone>
+			<pos x="860" y="330"/>
+			<size width="300" height="20"/>
+			<text format="CROSSFADER" size="14" color="#888888" align="center"/>
+		</textzone>
+		<slider action="crossfader">
+			<pos x="860" y="350"/>
+			<size width="300" height="20"/>
+			<background color="#333333" shape="square"/>
+			<thumb color="#ffffff" shape="square"/>
+		</slider>
 
 		<!-- 3.4 Deck 2 Info (Bottom Right) -->
 		<visual>
@@ -199,6 +225,7 @@
 	</panel>
 
 	<!-- Phase 5: Settings View -->
+	
 	<panel name="Settings_View" visible="var '$show_settings' 1">
 		<visual>
 			<pos x="100" y="0"/>
@@ -208,14 +235,14 @@
 		<textzone>
 			<pos x="100" y="20"/>
 			<size width="1820" height="60"/>
-			<text format="SETTINGS" size="36" color="#ffffff" weight="bold" align="center"/>
+			<text format="OPTIONS &amp; SETTINGS" size="36" color="#ffffff" weight="bold" align="center"/>
 		</textzone>
 		
 		<!-- Settings Options Row 1 -->
 		<textzone>
 			<pos x="150" y="100"/>
 			<size width="300" height="40"/>
-			<text format="Show Pads" size="24" color="#ffffff" align="left"/>
+			<text format="Show Pads (Skin)" size="24" color="#ffffff" align="left"/>
 		</textzone>
 		<button action="toggle '$show_pads'">
 			<pos x="450" y="100"/>
@@ -229,112 +256,105 @@
 		<textzone>
 			<pos x="650" y="100"/>
 			<size width="300" height="40"/>
-			<text format="Blink Time near End" size="24" color="#ffffff" align="left"/>
+			<text format="EQ Mode" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle '$blink_time'">
+		<button action="setting 'eqMode'">
 			<pos x="950" y="100"/>
-			<size width="100" height="40"/>
+			<size width="150" height="40"/>
 			<off color="#333333" shape="square"/>
-			<on color="#0055ff" shape="square" visible="var '$blink_time' 1"/>
-			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$blink_time' 1"/>
-			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$blink_time' 0"/>
+			<text action="setting 'eqMode'" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
-			<pos x="1150" y="100"/>
+			<pos x="1200" y="100"/>
 			<size width="300" height="40"/>
-			<text format="EQ Mode" size="24" color="#ffffff" align="left"/>
+			<text format="Start Recording" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle 'eqMode'">
-			<pos x="1450" y="100"/>
+		<button action="record">
+			<pos x="1500" y="100"/>
 			<size width="150" height="40"/>
 			<off color="#333333" shape="square"/>
-			<text format="TOGGLE" size="20" color="#ffffff" align="center"/>
+			<on color="#ff0000" shape="square"/>
+			<text format="REC" size="20" color="#ffffff" align="center"/>
 		</button>
 		
 		<!-- Settings Options Row 2 -->
 		<textzone>
 			<pos x="150" y="160"/>
 			<size width="300" height="40"/>
-			<text format="Key Display" size="24" color="#ffffff" align="left"/>
+			<text format="Quantize" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle '$key_display'">
+		<button action="global_quantize">
 			<pos x="450" y="160"/>
-			<size width="150" height="40"/>
+			<size width="100" height="40"/>
 			<off color="#333333" shape="square"/>
-			<on color="#0055ff" shape="square" visible="var '$key_display' 1"/>
-			<text format="Harmonic" size="20" color="#ffffff" align="center" visible="var '$key_display' 1"/>
-			<text format="Musical" size="20" color="#aaaaaa" align="center" visible="var '$key_display' 0"/>
+			<on color="#0055ff" shape="square"/>
+			<text format="ON" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
 			<pos x="650" y="160"/>
 			<size width="300" height="40"/>
-			<text format="Show Album Art" size="24" color="#ffffff" align="left"/>
+			<text format="Needle Lock" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle '$show_album_art'">
+		<button action="setting 'needleLock'">
 			<pos x="950" y="160"/>
-			<size width="100" height="40"/>
+			<size width="150" height="40"/>
 			<off color="#333333" shape="square"/>
-			<on color="#0055ff" shape="square" visible="var '$show_album_art' 1"/>
-			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$show_album_art' 1"/>
-			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$show_album_art' 0"/>
-		</button>
-		
-		<textzone>
-			<pos x="1150" y="160"/>
-			<size width="300" height="40"/>
-			<text format="Quantize" size="24" color="#ffffff" align="left"/>
-		</textzone>
-		<button action="quantize">
-			<pos x="1450" y="160"/>
-			<size width="100" height="40"/>
-			<off color="#333333" shape="square"/>
-			<text format="TOGGLE" size="20" color="#ffffff" align="center"/>
+			<text action="setting 'needleLock'" size="20" color="#ffffff" align="center"/>
 		</button>
 
+		<textzone>
+			<pos x="1200" y="160"/>
+			<size width="300" height="40"/>
+			<text format="Record Format" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="setting 'recordFormat'">
+			<pos x="1500" y="160"/>
+			<size width="150" height="40"/>
+			<off color="#333333" shape="square"/>
+			<text action="setting 'recordFormat'" size="20" color="#ffffff" align="center"/>
+		</button>
+		
 		<!-- Settings Options Row 3 -->
 		<textzone>
 			<pos x="150" y="220"/>
 			<size width="300" height="40"/>
-			<text format="Auto Key Match" size="24" color="#ffffff" align="left"/>
+			<text format="Slip Mode" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle '$auto_key'">
+		<button action="slip_mode">
 			<pos x="450" y="220"/>
 			<size width="100" height="40"/>
 			<off color="#333333" shape="square"/>
-			<on color="#0055ff" shape="square" visible="var '$auto_key' 1"/>
-			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$auto_key' 1"/>
-			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$auto_key' 0"/>
+			<on color="#0055ff" shape="square"/>
+			<text format="ON" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
 			<pos x="650" y="220"/>
 			<size width="300" height="40"/>
-			<text format="Needle Lock" size="24" color="#ffffff" align="left"/>
+			<text format="Key Display" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle '$needle_lock'">
+		<button action="setting 'keyDisplay'">
 			<pos x="950" y="220"/>
-			<size width="100" height="40"/>
+			<size width="150" height="40"/>
 			<off color="#333333" shape="square"/>
-			<on color="#0055ff" shape="square" visible="var '$needle_lock' 1"/>
-			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$needle_lock' 1"/>
-			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$needle_lock' 0"/>
+			<text action="setting 'keyDisplay'" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
-			<pos x="1150" y="220"/>
+			<pos x="1200" y="220"/>
 			<size width="300" height="40"/>
-			<text format="Slip Mode" size="24" color="#ffffff" align="left"/>
+			<text format="Auto Record" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="slip_mode">
-			<pos x="1450" y="220"/>
-			<size width="100" height="40"/>
+		<button action="setting 'recordAutoStart'">
+			<pos x="1500" y="220"/>
+			<size width="150" height="40"/>
 			<off color="#333333" shape="square"/>
-			<text format="TOGGLE" size="20" color="#ffffff" align="center"/>
+			<text action="setting 'recordAutoStart'" size="20" color="#ffffff" align="center"/>
 		</button>
-
 	</panel>
+
 
 	<!-- Mini-Decks Panel (Always Visible) -->
 	<panel name="Mini_Decks">
