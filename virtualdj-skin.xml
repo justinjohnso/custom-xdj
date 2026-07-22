@@ -48,7 +48,7 @@
 		<button action="set '$show_performance' 0 &amp; set '$show_browser' 0 &amp; set '$show_settings' 1">
 			<pos x="10" y="220"/>
 			<size width="80" height="80"/>
-			<text format="SETTING" align="center" color="#ffffff" size="14" weight="bold" />
+			<text format="SETTINGS" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
 	</panel>
 
@@ -56,7 +56,7 @@
 	<panel name="Performance_View" visible="var '$show_performance' 1">
 
 		<!-- 3.1 Waveform Restructuring (Top) -->
-		<scratchwave deck="left" orientation="horizontal">
+		<scratchwave deck="left" orientation="horizontal" visible="var '$show_performance' 1">
 			<pos x="100" y="0"/>
 			<size width="1820" height="120"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
@@ -68,7 +68,7 @@
 			</overlay>
 		</scratchwave>
 
-		<scratchwave deck="right" orientation="horizontal">
+		<scratchwave deck="right" orientation="horizontal" visible="var '$show_performance' 1">
 			<pos x="100" y="120"/>
 			<size width="1820" height="120"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
@@ -187,13 +187,9 @@
 			<size width="1820" height="380"/>
 			<off color="#111111" shape="square"/>
 		</visual>
-		<folder>
-			<pos x="110" y="10"/>
-			<size width="400" height="360"/>
-		</folder>
 		<browser>
-			<pos x="520" y="10"/>
-			<size width="1390" height="360"/>
+			<pos x="110" y="10"/>
+			<size width="1800" height="360"/>
 		</browser>
 	</panel>
 
@@ -210,15 +206,33 @@
 			<text format="SETTINGS" size="36" color="#ffffff" weight="bold" align="center"/>
 		</textzone>
 		
+		<!-- Settings Options -->
 		<textzone>
 			<pos x="200" y="100"/>
 			<size width="300" height="40"/>
 			<text format="Show Pads" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle 'show_pads'">
+		<button action="toggle '$show_pads'">
 			<pos x="500" y="100"/>
 			<size width="100" height="40"/>
-			<text format="TOGGLE" size="20" color="#00ffcc" align="center"/>
+			<off color="#333333" shape="square"/>
+			<on color="#0055ff" shape="square" visible="var '$show_pads' 1"/>
+			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$show_pads' 1"/>
+			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$show_pads' 0"/>
+		</button>
+		
+		<textzone>
+			<pos x="650" y="100"/>
+			<size width="300" height="40"/>
+			<text format="Blink Time near End" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle '$blink_time'">
+			<pos x="950" y="100"/>
+			<size width="100" height="40"/>
+			<off color="#333333" shape="square"/>
+			<on color="#0055ff" shape="square" visible="var '$blink_time' 1"/>
+			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$blink_time' 1"/>
+			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$blink_time' 0"/>
 		</button>
 		
 		<textzone>
@@ -226,10 +240,27 @@
 			<size width="300" height="40"/>
 			<text format="Key Display" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle 'key_display'">
+		<button action="toggle '$key_display'">
 			<pos x="500" y="160"/>
+			<size width="150" height="40"/>
+			<off color="#333333" shape="square"/>
+			<on color="#0055ff" shape="square" visible="var '$key_display' 1"/>
+			<text format="Harmonic" size="20" color="#ffffff" align="center" visible="var '$key_display' 1"/>
+			<text format="Musical" size="20" color="#aaaaaa" align="center" visible="var '$key_display' 0"/>
+		</button>
+
+		<textzone>
+			<pos x="650" y="160"/>
+			<size width="300" height="40"/>
+			<text format="Show Album Art" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle '$show_album_art'">
+			<pos x="950" y="160"/>
 			<size width="100" height="40"/>
-			<text format="TOGGLE" size="20" color="#00ffcc" align="center"/>
+			<off color="#333333" shape="square"/>
+			<on color="#0055ff" shape="square" visible="var '$show_album_art' 1"/>
+			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$show_album_art' 1"/>
+			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$show_album_art' 0"/>
 		</button>
 		
 		<textzone>
@@ -237,10 +268,27 @@
 			<size width="300" height="40"/>
 			<text format="Auto Key Match" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="toggle 'auto_key'">
+		<button action="toggle '$auto_key'">
 			<pos x="500" y="220"/>
 			<size width="100" height="40"/>
-			<text format="TOGGLE" size="20" color="#00ffcc" align="center"/>
+			<off color="#333333" shape="square"/>
+			<on color="#0055ff" shape="square" visible="var '$auto_key' 1"/>
+			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$auto_key' 1"/>
+			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$auto_key' 0"/>
+		</button>
+
+		<textzone>
+			<pos x="650" y="220"/>
+			<size width="300" height="40"/>
+			<text format="Needle Lock" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle '$needle_lock'">
+			<pos x="950" y="220"/>
+			<size width="100" height="40"/>
+			<off color="#333333" shape="square"/>
+			<on color="#0055ff" shape="square" visible="var '$needle_lock' 1"/>
+			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$needle_lock' 1"/>
+			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$needle_lock' 0"/>
 		</button>
 	</panel>
 
@@ -274,7 +322,7 @@
 				<size width="250" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
-			<rhythmwave>
+			<rhythmwave type="horizontal" colors="rgb">
 				<pos x="110" y="440"/>
 				<size width="890" height="30"/>
 			</rhythmwave>
@@ -302,7 +350,7 @@
 				<size width="250" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
-			<rhythmwave>
+			<rhythmwave type="horizontal" colors="rgb">
 				<pos x="1020" y="440"/>
 				<size width="890" height="30"/>
 			</rhythmwave>
