@@ -142,11 +142,19 @@
 			<size width="300" height="40"/>
 			<text format="Start Recording" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="record">
+		<visual visible="!record">
 			<pos x="1500" y="100"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<on color="#ff3333" shape="square"/>
+		</visual>
+		<visual visible="record">
+			<pos x="1500" y="100"/>
+			<size width="150" height="40"/>
+			<off color="#ff3333" shape="square"/>
+		</visual>
+		<button action="record">
+			<pos x="1500" y="100"/>
+			<size width="150" height="40"/>
 			<text format="RECORDING" size="20" color="#ffffff" weight="bold" align="center" visible="record" />
 			<text format="REC" size="20" color="#ffffff" weight="bold" align="center" visible="!record" />
 		</button>
