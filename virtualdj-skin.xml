@@ -129,7 +129,7 @@
 		<button action="setting 'eqMode'">
 			<pos x="950" y="100"/>
 			<size width="150" height="40"/>
-			<off color="#333333" shape="square"/>
+			<off color="#222222" shape="square"/>
 			<text action="setting 'eqMode'" size="20" color="#ffffff" align="center"/>
 		</button>
 
@@ -141,9 +141,9 @@
 		<button action="record">
 			<pos x="1500" y="100"/>
 			<size width="150" height="40"/>
-			<off color="#333333" shape="square"/>
-			<on color="#ff0000" shape="square"/>
-			<text format="REC" size="20" color="#ffffff" align="center"/>
+			<off color="#222222" shape="square"/>
+			<on color="#ff3333" shape="square"/>
+			<text action="record ? 'RECORDING' : 'REC'" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 		
 		<!-- Settings Options Row 2 -->
@@ -155,10 +155,9 @@
 		<button action="global_quantize">
 			<pos x="450" y="160"/>
 			<size width="100" height="40"/>
-			<off color="#333333" shape="square"/>
-			<on color="#0055ff" shape="square" visible="global_quantize"/>
-			<text format="ON" size="20" color="#ffffff" align="center" visible="global_quantize"/>
-			<text format="OFF" size="20" color="#aaaaaa" align="center" visible="!global_quantize"/>
+			<off color="#222222" shape="square"/>
+			<on color="#0055ff" shape="square"/>
+			<text action="global_quantize ? 'ON' : 'OFF'" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -169,7 +168,7 @@
 		<button action="setting 'needleLock'">
 			<pos x="950" y="160"/>
 			<size width="150" height="40"/>
-			<off color="#333333" shape="square"/>
+			<off color="#222222" shape="square"/>
 			<text action="setting 'needleLock'" size="20" color="#ffffff" align="center"/>
 		</button>
 
@@ -181,7 +180,7 @@
 		<button action="setting 'recordFormat'">
 			<pos x="1500" y="160"/>
 			<size width="150" height="40"/>
-			<off color="#333333" shape="square"/>
+			<off color="#222222" shape="square"/>
 			<text action="setting 'recordFormat'" size="20" color="#ffffff" align="center"/>
 		</button>
 		
@@ -194,9 +193,9 @@
 		<button action="slip_mode">
 			<pos x="450" y="220"/>
 			<size width="100" height="40"/>
-			<off color="#333333" shape="square"/>
+			<off color="#222222" shape="square"/>
 			<on color="#0055ff" shape="square"/>
-			<text format="ON" size="20" color="#ffffff" align="center"/>
+			<text action="slip_mode ? 'ON' : 'OFF'" size="20" color="#ffffff" weight="bold" align="center"/>
 		</button>
 
 		<textzone>
@@ -207,7 +206,7 @@
 		<button action="setting 'keyDisplay' +1">
 			<pos x="950" y="220"/>
 			<size width="150" height="40"/>
-			<off color="#333333" shape="square"/>
+			<off color="#222222" shape="square"/>
 			<text action="setting 'keyDisplay'" size="20" color="#ffffff" align="center"/>
 		</button>
 
@@ -219,7 +218,7 @@
 		<button action="setting 'recordAutoStart'">
 			<pos x="1500" y="220"/>
 			<size width="150" height="40"/>
-			<off color="#333333" shape="square"/>
+			<off color="#222222" shape="square"/>
 			<text action="setting 'recordAutoStart'" size="20" color="#ffffff" align="center"/>
 		</button>
 	</panel>
@@ -273,13 +272,13 @@
 				<button action="play_pause">
 					<pos x="860" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#2a2a2a" shape="square"/>
+					<off color="#222222" shape="square"/>
 					<text format="PLAY" size="16" color="#00ff00" weight="bold" align="center"/>
 				</button>
 				<button action="cue">
 					<pos x="930" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#2a2a2a" shape="square"/>
+					<off color="#222222" shape="square"/>
 					<text format="CUE" size="16" color="#ffaa00" weight="bold" align="center"/>
 				</button>
 			</panel>
@@ -287,7 +286,7 @@
 				<button action="load">
 					<pos x="890" y="390"/>
 					<size width="100" height="80"/>
-					<off color="#2a2a2a" shape="square"/>
+					<off color="#333333" shape="square"/>
 					<text format="LOAD 1" size="20" color="#ffffff" weight="bold" align="center"/>
 				</button>
 			</panel>
@@ -300,13 +299,13 @@
 				<button action="cue">
 					<pos x="1030" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#2a2a2a" shape="square"/>
+					<off color="#222222" shape="square"/>
 					<text format="CUE" size="16" color="#ffaa00" weight="bold" align="center"/>
 				</button>
 				<button action="play_pause">
 					<pos x="1100" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#2a2a2a" shape="square"/>
+					<off color="#222222" shape="square"/>
 					<text format="PLAY" size="16" color="#00ff00" weight="bold" align="center"/>
 				</button>
 			</panel>
@@ -314,7 +313,7 @@
 				<button action="load">
 					<pos x="1030" y="390"/>
 					<size width="100" height="80"/>
-					<off color="#2a2a2a" shape="square"/>
+					<off color="#333333" shape="square"/>
 					<text format="LOAD 2" size="20" color="#ffffff" weight="bold" align="center"/>
 				</button>
 			</panel>
