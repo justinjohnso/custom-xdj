@@ -67,49 +67,30 @@
 			<off color="#050505" shape="square"/>
 		</visual>
 
-		<!-- Waveforms (Top) -->
+		<!-- Waveforms (Maximized) -->
 		<scratchwave deck="left" orientation="horizontal">
 			<pos x="100" y="0"/>
-			<size width="1820" height="120"/>
+			<size width="1820" height="190"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
 				<pos x="908" y="0"/>
-				<size width="4" height="120"/>
+				<size width="4" height="190"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
 
 		<scratchwave deck="right" orientation="horizontal">
-			<pos x="100" y="120"/>
-			<size width="1820" height="120"/>
+			<pos x="100" y="190"/>
+			<size width="1820" height="190"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
 				<pos x="908" y="0"/>
-				<size width="4" height="120"/>
+				<size width="4" height="190"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
-
-		<!-- Center area: just wave zoom for now -->
-		<textzone>
-			<pos x="860" y="280"/>
-			<size width="200" height="30"/>
-			<text format="WAVEFORM ZOOM" size="18" color="#888888" align="center"/>
-		</textzone>
-		<button action="zoom +1">
-			<pos x="860" y="320"/>
-			<size width="90" height="40"/>
-			<off color="#222222" shape="square"/>
-			<text format="IN (+)" size="18" color="#ffffff" weight="bold" align="center"/>
-		</button>
-		<button action="zoom -1">
-			<pos x="970" y="320"/>
-			<size width="90" height="40"/>
-			<off color="#222222" shape="square"/>
-			<text format="OUT (-)" size="18" color="#ffffff" weight="bold" align="center"/>
-		</button>
 	</panel>
 
 	<!-- Phase 4: Browser View -->
