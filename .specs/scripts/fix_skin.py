@@ -1,4 +1,6 @@
-<Skin name="XDJ 480 Hardware" version="8" width="1920" height="480" nbdecks="2" image="2Decks.png">
+import sys
+
+new_xml = """<Skin name="XDJ 480 Hardware" version="8" width="1920" height="480" nbdecks="2" image="2Decks.png">
 
 	<font name="Arial"/>
 
@@ -67,30 +69,49 @@
 			<off color="#050505" shape="square"/>
 		</visual>
 
-		<!-- Waveforms (Maximized) -->
+		<!-- Waveforms (Top) -->
 		<scratchwave deck="left" orientation="horizontal">
 			<pos x="100" y="0"/>
-			<size width="1820" height="190"/>
+			<size width="1820" height="120"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
 				<pos x="908" y="0"/>
-				<size width="4" height="190"/>
+				<size width="4" height="120"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
 
 		<scratchwave deck="right" orientation="horizontal">
-			<pos x="100" y="190"/>
-			<size width="1820" height="190"/>
+			<pos x="100" y="120"/>
+			<size width="1820" height="120"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
 				<pos x="908" y="0"/>
-				<size width="4" height="190"/>
+				<size width="4" height="120"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
+
+		<!-- Center area: just wave zoom for now -->
+		<textzone>
+			<pos x="860" y="280"/>
+			<size width="200" height="30"/>
+			<text format="WAVEFORM ZOOM" size="18" color="#888888" align="center"/>
+		</textzone>
+		<button action="zoom +1">
+			<pos x="860" y="320"/>
+			<size width="90" height="40"/>
+			<off color="#222222" shape="square"/>
+			<text format="IN (+)" size="18" color="#ffffff" weight="bold" align="center"/>
+		</button>
+		<button action="zoom -1">
+			<pos x="970" y="320"/>
+			<size width="90" height="40"/>
+			<off color="#222222" shape="square"/>
+			<text format="OUT (-)" size="18" color="#ffffff" weight="bold" align="center"/>
+		</button>
 	</panel>
 
 	<!-- Phase 4: Browser View -->
@@ -120,21 +141,30 @@
 		</textzone>
 		
 		<!-- Settings Options Row 1 -->
+		<textzone>
+			<pos x="150" y="100"/>
+			<size width="300" height="40"/>
+			<text format="Show Pads (Skin)" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle '$show_pads'">
+			<pos x="450" y="100"/>
+			<size width="100" height="40"/>
+			<off color="#333333" shape="square"/>
+			<on color="#0055ff" shape="square" visible="var '$show_pads' 1"/>
+			<text format="YES" size="20" color="#ffffff" align="center" visible="var '$show_pads' 1"/>
+			<text format="NO" size="20" color="#aaaaaa" align="center" visible="var '$show_pads' 0"/>
+		</button>
 		
 		<textzone>
 			<pos x="650" y="100"/>
 			<size width="300" height="40"/>
 			<text format="EQ Mode" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="eq_mode +1">
+		<button action="setting 'eqMode'">
 			<pos x="950" y="100"/>
 			<size width="150" height="40"/>
-			<off color="#222222" shape="square"/>
-			<text format="EQ" size="20" color="#ffffff" weight="bold" align="center" visible="eq_mode 0"/>
-			<text format="EZ MIX" size="20" color="#ffffff" weight="bold" align="center" visible="eq_mode 1"/>
-			<text format="STEMS" size="20" color="#ffffff" weight="bold" align="center" visible="eq_mode 2"/>
-			<text format="FILTER" size="20" color="#ffffff" weight="bold" align="center" visible="eq_mode 3"/>
-			<text format="STEMS" size="20" color="#ffffff" weight="bold" align="center" visible="eq_mode 4"/>
+			<off color="#333333" shape="square"/>
+			<text action="setting 'eqMode'" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
@@ -142,21 +172,12 @@
 			<size width="300" height="40"/>
 			<text format="Start Recording" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<visual visible="!record">
-			<pos x="1500" y="100"/>
-			<size width="150" height="40"/>
-			<off color="#222222" shape="square"/>
-		</visual>
-		<visual visible="record">
-			<pos x="1500" y="100"/>
-			<size width="150" height="40"/>
-			<off color="#ff3333" shape="square"/>
-		</visual>
 		<button action="record">
 			<pos x="1500" y="100"/>
 			<size width="150" height="40"/>
-			<text format="RECORDING" size="20" color="#ffffff" weight="bold" align="center" visible="record" />
-			<text format="REC" size="20" color="#ffffff" weight="bold" align="center" visible="!record" />
+			<off color="#333333" shape="square"/>
+			<on color="#ff0000" shape="square"/>
+			<text format="REC" size="20" color="#ffffff" align="center"/>
 		</button>
 		
 		<!-- Settings Options Row 2 -->
@@ -168,10 +189,9 @@
 		<button action="global_quantize">
 			<pos x="450" y="160"/>
 			<size width="100" height="40"/>
-			<off color="#222222" shape="square"/>
+			<off color="#333333" shape="square"/>
 			<on color="#0055ff" shape="square"/>
-			<text format="ON" size="20" color="#ffffff" weight="bold" align="center" visible="global_quantize" />
-			<text format="OFF" size="20" color="#aaaaaa" weight="bold" align="center" visible="!global_quantize" />
+			<text format="ON" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
@@ -179,12 +199,11 @@
 			<size width="300" height="40"/>
 			<text format="Needle Lock" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'needleLock' +1">
+		<button action="setting 'needleLock'">
 			<pos x="950" y="160"/>
 			<size width="150" height="40"/>
-			<off color="#222222" shape="square"/>
-			<text format="ON" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'needleLock'" />
-			<text format="OFF" size="20" color="#aaaaaa" weight="bold" align="center" visible="!setting 'needleLock'" />
+			<off color="#333333" shape="square"/>
+			<text action="setting 'needleLock'" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
@@ -192,16 +211,11 @@
 			<size width="300" height="40"/>
 			<text format="Record Format" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'recordFormat' 'mp3' ? setting 'recordFormat' 'wav' : setting 'recordFormat' 'wav' ? setting 'recordFormat' 'flac' : setting 'recordFormat' 'flac' ? setting 'recordFormat' 'ogg' : setting 'recordFormat' 'ogg' ? setting 'recordFormat' 'mp4' : setting 'recordFormat' 'mp4' ? setting 'recordFormat' 'webm' : setting 'recordFormat' 'mp3'">
+		<button action="setting 'recordFormat'">
 			<pos x="1500" y="160"/>
 			<size width="150" height="40"/>
-			<off color="#222222" shape="square"/>
-			<text format="MP3" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordFormat' 'mp3'" />
-			<text format="WAV" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordFormat' 'wav'" />
-			<text format="FLAC" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordFormat' 'flac'" />
-			<text format="OGG" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordFormat' 'ogg'" />
-			<text format="MP4" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordFormat' 'mp4'" />
-			<text format="WEBM" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordFormat' 'webm'" />
+			<off color="#333333" shape="square"/>
+			<text action="setting 'recordFormat'" size="20" color="#ffffff" align="center"/>
 		</button>
 		
 		<!-- Settings Options Row 3 -->
@@ -213,10 +227,9 @@
 		<button action="slip_mode">
 			<pos x="450" y="220"/>
 			<size width="100" height="40"/>
-			<off color="#222222" shape="square"/>
+			<off color="#333333" shape="square"/>
 			<on color="#0055ff" shape="square"/>
-			<text format="ON" size="20" color="#ffffff" weight="bold" align="center" visible="slip_mode" />
-			<text format="OFF" size="20" color="#aaaaaa" weight="bold" align="center" visible="!slip_mode" />
+			<text format="ON" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
@@ -224,14 +237,11 @@
 			<size width="300" height="40"/>
 			<text format="Key Display" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<button action="setting 'keyDisplay' +1">
+		<button action="setting 'keyDisplay'">
 			<pos x="950" y="220"/>
 			<size width="150" height="40"/>
-			<off color="#222222" shape="square"/>
-			<text format="MUSICAL" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'keyDisplay' 0" />
-			<text format="CAMELOT" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'keyDisplay' 1" />
-			<text format="OPENKEY" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'keyDisplay' 2" />
-			<text format="ALT" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'keyDisplay' 3" />
+			<off color="#333333" shape="square"/>
+			<text action="setting 'keyDisplay'" size="20" color="#ffffff" align="center"/>
 		</button>
 
 		<textzone>
@@ -239,23 +249,11 @@
 			<size width="300" height="40"/>
 			<text format="Auto Record" size="24" color="#ffffff" align="left"/>
 		</textzone>
-		<visual visible="setting 'recordAutoStart' 1">
+		<button action="setting 'recordAutoStart'">
 			<pos x="1500" y="220"/>
 			<size width="150" height="40"/>
-			<off color="#0055ff" shape="square"/>
-		</visual>
-		<visual visible="setting 'recordAutoStart' 2">
-			<pos x="1500" y="220"/>
-			<size width="150" height="40"/>
-			<off color="#0055ff" shape="square"/>
-		</visual>
-		<button action="setting 'recordAutoStart' +1">
-			<pos x="1500" y="220"/>
-			<size width="150" height="40"/>
-			<off color="#222222" shape="square"/>
-			<text format="OFF" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordAutoStart' 0" />
-			<text format="ON START" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordAutoStart' 1" />
-			<text format="ON PLAY" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'recordAutoStart' 2" />
+			<off color="#333333" shape="square"/>
+			<text action="setting 'recordAutoStart'" size="20" color="#ffffff" align="center"/>
 		</button>
 	</panel>
 
@@ -308,13 +306,13 @@
 				<button action="play_pause">
 					<pos x="860" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#222222" shape="square"/>
+					<off color="#2a2a2a" shape="square"/>
 					<text format="PLAY" size="16" color="#00ff00" weight="bold" align="center"/>
 				</button>
 				<button action="cue">
 					<pos x="930" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#222222" shape="square"/>
+					<off color="#2a2a2a" shape="square"/>
 					<text format="CUE" size="16" color="#ffaa00" weight="bold" align="center"/>
 				</button>
 			</panel>
@@ -322,7 +320,7 @@
 				<button action="load">
 					<pos x="890" y="390"/>
 					<size width="100" height="80"/>
-					<off color="#333333" shape="square"/>
+					<off color="#2a2a2a" shape="square"/>
 					<text format="LOAD 1" size="20" color="#ffffff" weight="bold" align="center"/>
 				</button>
 			</panel>
@@ -335,13 +333,13 @@
 				<button action="cue">
 					<pos x="1030" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#222222" shape="square"/>
+					<off color="#2a2a2a" shape="square"/>
 					<text format="CUE" size="16" color="#ffaa00" weight="bold" align="center"/>
 				</button>
 				<button action="play_pause">
 					<pos x="1100" y="390"/>
 					<size width="60" height="80"/>
-					<off color="#222222" shape="square"/>
+					<off color="#2a2a2a" shape="square"/>
 					<text format="PLAY" size="16" color="#00ff00" weight="bold" align="center"/>
 				</button>
 			</panel>
@@ -349,7 +347,7 @@
 				<button action="load">
 					<pos x="1030" y="390"/>
 					<size width="100" height="80"/>
-					<off color="#333333" shape="square"/>
+					<off color="#2a2a2a" shape="square"/>
 					<text format="LOAD 2" size="20" color="#ffffff" weight="bold" align="center"/>
 				</button>
 			</panel>
@@ -389,4 +387,7 @@
 		</deck>
 	</panel>
 
-</Skin>
+</Skin>"""
+
+with open("virtualdj-skin.xml", "w") as f:
+    f.write(new_xml)
