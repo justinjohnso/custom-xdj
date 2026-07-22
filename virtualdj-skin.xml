@@ -2,163 +2,311 @@
 
 	<font name="Arial"/>
 
-	<visual>
-		<pos x="0" y="0"/>
-		<size width="1920" height="480"/>
-		<off color="#050505" shape="square"/>
-	</visual>
+	<!-- Phase 1.3: Global Variables Initialization -->
+	<onload action="set '$show_performance' 1 &amp; set '$show_browser' 0 &amp; set '$show_settings' 0"/>
 
-	<onload action="set '$show_browser' 0"/>
-
-	<panel name="Browser_View" visible="var '$show_browser' 1">
-		<browser>
-			<pos x="10" y="70"/>
-			<size width="1900" height="400"/>
-		</browser>
-		
+	<!-- Phase 2: Auxiliary Sidebar Navigation -->
+	<panel name="Sidebar">
+		<!-- 2.1 Left Sidebar Background -->
 		<visual>
-			<pos x="860" y="10"/>
-			<size width="200" height="50"/>
-			<off color="#1a1a1a" shape="square"/>
+			<pos x="0" y="0"/>
+			<size width="100" height="480"/>
+			<off color="#111111" shape="square"/>
 		</visual>
-		<button action="set '$show_browser' 0">
-			<pos x="860" y="10"/>
-			<size width="200" height="50"/>
-			<text format="EXIT BROWSE" align="center" color="#ffffff" size="20" weight="bold" />
+
+		<!-- 2.2 Navigation Buttons -->
+		<!-- Performance Button -->
+		<visual>
+			<pos x="10" y="20"/>
+			<size width="80" height="80"/>
+			<off color="#222222" shape="square"/>
+		</visual>
+		<button action="set '$show_performance' 1 &amp; set '$show_browser' 0 &amp; set '$show_settings' 0">
+			<pos x="10" y="20"/>
+			<size width="80" height="80"/>
+			<text format="PERF" align="center" color="#ffffff" size="14" weight="bold" />
+		</button>
+
+		<!-- Browser Button -->
+		<visual>
+			<pos x="10" y="120"/>
+			<size width="80" height="80"/>
+			<off color="#222222" shape="square"/>
+		</visual>
+		<button action="set '$show_performance' 0 &amp; set '$show_browser' 1 &amp; set '$show_settings' 0">
+			<pos x="10" y="120"/>
+			<size width="80" height="80"/>
+			<text format="BROWSE" align="center" color="#ffffff" size="14" weight="bold" />
+		</button>
+
+		<!-- Settings Button -->
+		<visual>
+			<pos x="10" y="220"/>
+			<size width="80" height="80"/>
+			<off color="#222222" shape="square"/>
+		</visual>
+		<button action="set '$show_performance' 0 &amp; set '$show_browser' 0 &amp; set '$show_settings' 1">
+			<pos x="10" y="220"/>
+			<size width="80" height="80"/>
+			<text format="SETTING" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
 	</panel>
 
-	<panel name="Performance_View" visible="var '$show_browser' 0">
+	<!-- Phase 3: Main Performance View -->
+	<panel name="Performance_View" visible="var '$show_performance' 1">
 
-		<visual>
-			<pos x="0" y="0"/>
-			<size width="1920" height="140"/>
-			<off color="#0a0a0a" shape="square"/>
-		</visual>
-
-		<visual>
-			<pos x="830" y="45"/>
-			<size width="120" height="50"/>
-			<off color="#1a1a1a" shape="square"/>
-		</visual>
-		<button action="set '$show_browser' 1">
-			<pos x="830" y="45"/>
-			<size width="120" height="50"/>
-			<text format="BROWSE" align="center" color="#ffffff" size="18" weight="bold" />
-		</button>
-
-		<visual>
-			<pos x="970" y="45"/>
-			<size width="120" height="50"/>
-			<off color="#1a1a1a" shape="square"/>
-		</visual>
-		<button action="settings">
-			<pos x="970" y="45"/>
-			<size width="120" height="50"/>
-			<text format="SETTINGS" align="center" color="#ffffff" size="18" weight="bold" />
-		</button>
-
-		<deck deck="left">
-			<cover>
-				<pos x="10" y="10"/>
-				<size width="120" height="120"/>
-			</cover>
-			
-			<textzone>
-				<pos x="145" y="10"/>
-				<size width="650" height="40"/>
-				<text format="%Title" size="36" color="#ffffff" weight="bold" align="left" scroll="yes"/>
-			</textzone>
-			<textzone>
-				<pos x="145" y="55"/>
-				<size width="650" height="30"/>
-				<text format="%Author" size="24" color="#888888" align="left" scroll="yes"/>
-			</textzone>
-			
-			<textzone>
-				<pos x="145" y="95"/>
-				<size width="150" height="40"/>
-				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="310" y="95"/>
-				<size width="180" height="40"/>
-				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="510" y="105"/>
-				<size width="100" height="30"/>
-				<text format="%key" size="24" color="#00ffcc" align="left"/>
-			</textzone>
-			<textzone>
-				<pos x="630" y="105"/>
-				<size width="120" height="30"/>
-				<text format="%pitch" size="24" color="#ffffff" align="left"/>
-			</textzone>
-		</deck>
-
-		<deck deck="right">
-			<cover>
-				<pos x="1790" y="10"/>
-				<size width="120" height="120"/>
-			</cover>
-			
-			<textzone>
-				<pos x="1125" y="10"/>
-				<size width="650" height="40"/>
-				<text format="%Title" size="36" color="#ffffff" weight="bold" align="right" scroll="yes"/>
-			</textzone>
-			<textzone>
-				<pos x="1125" y="55"/>
-				<size width="650" height="30"/>
-				<text format="%Author" size="24" color="#888888" align="right" scroll="yes"/>
-			</textzone>
-			
-			<textzone>
-				<pos x="1625" y="95"/>
-				<size width="150" height="40"/>
-				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="right"/>
-			</textzone>
-			<textzone>
-				<pos x="1430" y="95"/>
-				<size width="180" height="40"/>
-				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="right"/>
-			</textzone>
-			<textzone>
-				<pos x="1310" y="105"/>
-				<size width="100" height="30"/>
-				<text format="%key" size="24" color="#00ffcc" align="right"/>
-			</textzone>
-			<textzone>
-				<pos x="1170" y="105"/>
-				<size width="120" height="30"/>
-				<text format="%pitch" size="24" color="#ffffff" align="right"/>
-			</textzone>
-		</deck>
-
+		<!-- 3.1 Waveform Restructuring (Top) -->
 		<scratchwave deck="left" orientation="horizontal">
-			<pos x="0" y="140"/>
-			<size width="1920" height="170"/>
+			<pos x="100" y="0"/>
+			<size width="1820" height="120"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
-				<pos x="958" y="0"/>
-				<size width="4" height="170"/>
+				<pos x="908" y="0"/>
+				<size width="4" height="120"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
 
 		<scratchwave deck="right" orientation="horizontal">
-			<pos x="0" y="310"/>
-			<size width="1920" height="170"/>
+			<pos x="100" y="120"/>
+			<size width="1820" height="120"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
-				<pos x="958" y="0"/>
-				<size width="4" height="170"/>
+				<pos x="908" y="0"/>
+				<size width="4" height="120"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
 
+		<!-- 3.2 Deck 1 Info (Bottom Left) -->
+		<visual>
+			<pos x="100" y="240"/>
+			<size width="650" height="240"/>
+			<off color="#050505" shape="square"/>
+		</visual>
+
+		<deck deck="left">
+			<cover>
+				<pos x="110" y="250"/>
+				<size width="120" height="120"/>
+			</cover>
+			
+			<textzone>
+				<pos x="240" y="250"/>
+				<size width="500" height="40"/>
+				<text format="%Title" size="36" color="#ffffff" weight="bold" align="left" scroll="yes"/>
+			</textzone>
+			<textzone>
+				<pos x="240" y="290"/>
+				<size width="500" height="30"/>
+				<text format="%Author" size="24" color="#888888" align="left" scroll="yes"/>
+			</textzone>
+			
+			<textzone>
+				<pos x="240" y="330"/>
+				<size width="150" height="40"/>
+				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="400" y="330"/>
+				<size width="150" height="40"/>
+				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="560" y="340"/>
+				<size width="80" height="30"/>
+				<text format="%key" size="24" color="#00ffcc" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="650" y="340"/>
+				<size width="90" height="30"/>
+				<text format="%pitch" size="24" color="#ffffff" align="left"/>
+			</textzone>
+		</deck>
+
+		<!-- 3.3 Center/Mixer Info (Bottom Center) -->
+		<visual>
+			<pos x="750" y="240"/>
+			<size width="520" height="240"/>
+			<off color="#0a0a0a" shape="square"/>
+		</visual>
+
+		<!-- 3.4 Deck 2 Info (Bottom Right) -->
+		<visual>
+			<pos x="1270" y="240"/>
+			<size width="650" height="240"/>
+			<off color="#050505" shape="square"/>
+		</visual>
+
+		<deck deck="right">
+			<cover>
+				<pos x="1790" y="250"/>
+				<size width="120" height="120"/>
+			</cover>
+			
+			<textzone>
+				<pos x="1280" y="250"/>
+				<size width="500" height="40"/>
+				<text format="%Title" size="36" color="#ffffff" weight="bold" align="right" scroll="yes"/>
+			</textzone>
+			<textzone>
+				<pos x="1280" y="290"/>
+				<size width="500" height="30"/>
+				<text format="%Author" size="24" color="#888888" align="right" scroll="yes"/>
+			</textzone>
+			
+			<textzone>
+				<pos x="1630" y="330"/>
+				<size width="150" height="40"/>
+				<text format="%Pbpmex" size="34" color="#00ffcc" weight="bold" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1470" y="330"/>
+				<size width="150" height="40"/>
+				<text action="get_time 'remain'" size="34" color="#ffffff" weight="bold" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1380" y="340"/>
+				<size width="80" height="30"/>
+				<text format="%key" size="24" color="#00ffcc" align="right"/>
+			</textzone>
+			<textzone>
+				<pos x="1280" y="340"/>
+				<size width="90" height="30"/>
+				<text format="%pitch" size="24" color="#ffffff" align="right"/>
+			</textzone>
+		</deck>
 	</panel>
+
+	<!-- Phase 4: Browser View -->
+	<panel name="Browser_View" visible="var '$show_browser' 1">
+		<visual>
+			<pos x="100" y="0"/>
+			<size width="1820" height="380"/>
+			<off color="#111111" shape="square"/>
+		</visual>
+		<folder>
+			<pos x="110" y="10"/>
+			<size width="400" height="360"/>
+		</folder>
+		<browser>
+			<pos x="520" y="10"/>
+			<size width="1390" height="360"/>
+		</browser>
+	</panel>
+
+	<!-- Phase 5: Settings View -->
+	<panel name="Settings_View" visible="var '$show_settings' 1">
+		<visual>
+			<pos x="100" y="0"/>
+			<size width="1820" height="380"/>
+			<off color="#222222" shape="square"/>
+		</visual>
+		<textzone>
+			<pos x="100" y="20"/>
+			<size width="1820" height="60"/>
+			<text format="SETTINGS" size="36" color="#ffffff" weight="bold" align="center"/>
+		</textzone>
+		
+		<textzone>
+			<pos x="200" y="100"/>
+			<size width="300" height="40"/>
+			<text format="Show Pads" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle 'show_pads'">
+			<pos x="500" y="100"/>
+			<size width="100" height="40"/>
+			<text format="TOGGLE" size="20" color="#00ffcc" align="center"/>
+		</button>
+		
+		<textzone>
+			<pos x="200" y="160"/>
+			<size width="300" height="40"/>
+			<text format="Key Display" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle 'key_display'">
+			<pos x="500" y="160"/>
+			<size width="100" height="40"/>
+			<text format="TOGGLE" size="20" color="#00ffcc" align="center"/>
+		</button>
+		
+		<textzone>
+			<pos x="200" y="220"/>
+			<size width="300" height="40"/>
+			<text format="Auto Key Match" size="24" color="#ffffff" align="left"/>
+		</textzone>
+		<button action="toggle 'auto_key'">
+			<pos x="500" y="220"/>
+			<size width="100" height="40"/>
+			<text format="TOGGLE" size="20" color="#00ffcc" align="center"/>
+		</button>
+	</panel>
+
+	<!-- Mini-Decks Panel (Visible in Auxiliary Views) -->
+	<panel name="Mini_Decks" visible="var '$show_performance' 0">
+		<visual>
+			<pos x="100" y="380"/>
+			<size width="1820" height="100"/>
+			<off color="#0a0a0a" shape="square"/>
+		</visual>
+
+		<!-- Deck 1 Mini -->
+		<deck deck="left">
+			<textzone>
+				<pos x="110" y="390"/>
+				<size width="400" height="40"/>
+				<text format="%Title" size="24" color="#ffffff" weight="bold" align="left" scroll="yes"/>
+			</textzone>
+			<textzone>
+				<pos x="520" y="390"/>
+				<size width="100" height="40"/>
+				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="630" y="390"/>
+				<size width="100" height="40"/>
+				<text format="%key" size="24" color="#00ffcc" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="740" y="390"/>
+				<size width="250" height="40"/>
+				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
+			</textzone>
+			<rhythmwave>
+				<pos x="110" y="440"/>
+				<size width="890" height="30"/>
+			</rhythmwave>
+		</deck>
+
+		<!-- Deck 2 Mini -->
+		<deck deck="right">
+			<textzone>
+				<pos x="1020" y="390"/>
+				<size width="400" height="40"/>
+				<text format="%Title" size="24" color="#ffffff" weight="bold" align="left" scroll="yes"/>
+			</textzone>
+			<textzone>
+				<pos x="1430" y="390"/>
+				<size width="100" height="40"/>
+				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="1540" y="390"/>
+				<size width="100" height="40"/>
+				<text format="%key" size="24" color="#00ffcc" align="left"/>
+			</textzone>
+			<textzone>
+				<pos x="1650" y="390"/>
+				<size width="250" height="40"/>
+				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
+			</textzone>
+			<rhythmwave>
+				<pos x="1020" y="440"/>
+				<size width="890" height="30"/>
+			</rhythmwave>
+		</deck>
+	</panel>
+
 </Skin>
