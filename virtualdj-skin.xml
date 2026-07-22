@@ -171,7 +171,8 @@
 			<pos x="950" y="160"/>
 			<size width="150" height="40"/>
 			<off color="#222222" shape="square"/>
-			<text action="setting 'needleLock'" size="20" color="#ffffff" weight="bold" align="center"/>
+			<text format="ON" size="20" color="#ffffff" weight="bold" align="center" visible="setting 'needleLock'" />
+			<text format="OFF" size="20" color="#aaaaaa" weight="bold" align="center" visible="!setting 'needleLock'" />
 		</button>
 
 		<textzone>
