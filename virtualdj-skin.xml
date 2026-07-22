@@ -304,56 +304,76 @@
 		<deck deck="left">
 			<textzone>
 				<pos x="110" y="390"/>
-				<size width="400" height="40"/>
+				<size width="380" height="40"/>
 				<text format="%Title" size="24" color="#ffffff" weight="bold" align="left" scroll="yes"/>
 			</textzone>
 			<textzone>
-				<pos x="520" y="390"/>
-				<size width="100" height="40"/>
+				<pos x="500" y="390"/>
+				<size width="80" height="40"/>
 				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="630" y="390"/>
-				<size width="100" height="40"/>
+				<pos x="590" y="390"/>
+				<size width="80" height="40"/>
 				<text format="%key" size="24" color="#00ffcc" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="740" y="390"/>
-				<size width="250" height="40"/>
+				<pos x="680" y="390"/>
+				<size width="180" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
 			<rhythmwave type="horizontal" colors="rgb">
 				<pos x="110" y="440"/>
-				<size width="890" height="30"/>
+				<size width="750" height="30"/>
 			</rhythmwave>
+			<visual>
+				<pos x="880" y="390"/>
+				<size width="100" height="80"/>
+				<off color="#2a2a2a" shape="square"/>
+			</visual>
+			<button action="load">
+				<pos x="880" y="390"/>
+				<size width="100" height="80"/>
+				<text format="LOAD 1" size="20" color="#ffffff" weight="bold" align="center"/>
+			</button>
 		</deck>
 
 		<!-- Deck 2 Mini -->
 		<deck deck="right">
 			<textzone>
 				<pos x="1020" y="390"/>
-				<size width="400" height="40"/>
+				<size width="380" height="40"/>
 				<text format="%Title" size="24" color="#ffffff" weight="bold" align="left" scroll="yes"/>
 			</textzone>
 			<textzone>
-				<pos x="1430" y="390"/>
-				<size width="100" height="40"/>
+				<pos x="1410" y="390"/>
+				<size width="80" height="40"/>
 				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="1540" y="390"/>
-				<size width="100" height="40"/>
+				<pos x="1500" y="390"/>
+				<size width="80" height="40"/>
 				<text format="%key" size="24" color="#00ffcc" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="1650" y="390"/>
-				<size width="250" height="40"/>
+				<pos x="1590" y="390"/>
+				<size width="180" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
 			<rhythmwave type="horizontal" colors="rgb">
 				<pos x="1020" y="440"/>
-				<size width="890" height="30"/>
+				<size width="750" height="30"/>
 			</rhythmwave>
+			<visual>
+				<pos x="1790" y="390"/>
+				<size width="100" height="80"/>
+				<off color="#2a2a2a" shape="square"/>
+			</visual>
+			<button action="load">
+				<pos x="1790" y="390"/>
+				<size width="100" height="80"/>
+				<text format="LOAD 2" size="20" color="#ffffff" weight="bold" align="center"/>
+			</button>
 		</deck>
 	</panel>
 
