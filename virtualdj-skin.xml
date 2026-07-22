@@ -1,4 +1,4 @@
-<Skin name="XDJ 480 Hardware" version="8" width="1920" height="480" nbdecks="2" image="2Decks.png">
+<Skin name="XDJ 480 Hardware" version="8" width="1920" height="480" stretch="yes" ratio="none" nbdecks="2" image="2Decks.png">
 
 	<font name="Arial"/>
 
@@ -6,7 +6,7 @@
 	<onload action="set '$show_performance' 1 &amp; set '$show_browser' 0"/>
 
 	<!-- Phase 2: Auxiliary Sidebar Navigation -->
-	<group name="Sidebar" x="0" y="0">
+	<panel name="Sidebar">
 		<visual>
 			<pos x="0" y="0"/>
 			<size width="100" height="480"/>
@@ -15,9 +15,9 @@
 
 		<!-- Performance Button -->
 		<visual><pos x="10" y="80"/><size width="80" height="80"/><off color="#222222" shape="square"/></visual>
-		<group visibility="var '$show_performance' 1">
+		<panel visible="var '$show_performance' 1">
 			<visual><pos x="10" y="80"/><size width="80" height="80"/><off color="#0055ff" shape="square"/></visual>
-		</group>
+		</panel>
 		<button action="set '$show_performance' 1 &amp; set '$show_browser' 0">
 			<pos x="10" y="80"/>
 			<size width="80" height="80"/>
@@ -26,9 +26,9 @@
 
 		<!-- Browser Button -->
 		<visual><pos x="10" y="180"/><size width="80" height="80"/><off color="#222222" shape="square"/></visual>
-		<group visibility="var '$show_browser' 1">
+		<panel visible="var '$show_browser' 1">
 			<visual><pos x="10" y="180"/><size width="80" height="80"/><off color="#0055ff" shape="square"/></visual>
-		</group>
+		</panel>
 		<button action="set '$show_performance' 0 &amp; set '$show_browser' 1">
 			<pos x="10" y="180"/>
 			<size width="80" height="80"/>
@@ -46,60 +46,60 @@
 			<size width="80" height="80"/>
 			<text format="SYSTEM" align="center" color="#ffffff" size="14" weight="bold" />
 		</button>
-	</group>
+	</panel>
 
 	<!-- Phase 3: Main Performance View -->
-	<group name="Performance_View" x="0" y="0" visibility="var '$show_performance' 1">
+	<panel name="Performance_View" visible="var '$show_performance' 1">
 		<visual>
-			<pos x="0" y="0"/>
+			<pos x="100" y="0"/>
 			<size width="1820" height="380"/>
 			<off color="#050505" shape="square"/>
 		</visual>
 
 		<!-- Waveforms (Maximized) -->
 		<scratchwave deck="left" orientation="horizontal">
-			<pos x="0" y="0"/>
+			<pos x="100" y="0"/>
 			<size width="1820" height="190"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
-				<pos x="908" y="0"/>
+				<pos x="1008" y="0"/>
 				<size width="4" height="190"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
 
 		<scratchwave deck="right" orientation="horizontal">
-			<pos x="0" y="190"/>
+			<pos x="100" y="190"/>
 			<size width="1820" height="190"/>
 			<grid color="#555555" height="10" size="1" mainsize="4" mirrored="true"/>
 			<gridlines color="#333333" width="1" transparency="0.5"/>
 			<overlay>
-				<pos x="908" y="190"/>
+				<pos x="1008" y="190"/>
 				<size width="4" height="190"/>
 				<background color="#ff3333" shape="square"/>
 			</overlay>
 		</scratchwave>
-	</group>
+	</panel>
 
 	<!-- Phase 4: Browser View -->
-	<group name="Browser_View" x="0" y="0" visibility="var '$show_browser' 1">
+	<panel name="Browser_View" visible="var '$show_browser' 1">
 		<visual>
-			<pos x="0" y="0"/>
+			<pos x="100" y="0"/>
 			<size width="1820" height="380"/>
 			<off color="#111111" shape="square"/>
 		</visual>
 		<browser>
-			<pos x="10" y="10"/>
+			<pos x="110" y="10"/>
 			<size width="1800" height="360"/>
 		</browser>
-	</group>
+	</panel>
 
 
 	<!-- Mini-Decks Panel (Always Visible) -->
-	<group name="Mini_Decks" x="0" y="0">
+	<panel name="Mini_Decks">
 		<visual>
-			<pos x="0" y="0"/>
+			<pos x="100" y="380"/>
 			<size width="1820" height="100"/>
 			<off color="#0a0a0a" shape="square"/>
 		</visual>
@@ -108,66 +108,66 @@
 		<deck deck="left">
 			<!-- Album Art Left Edge -->
 			<cover>
-				<pos x="10" y="10"/>
+				<pos x="110" y="390"/>
 				<size width="80" height="80"/>
 			</cover>
 			
 			<textzone>
-				<pos x="100" y="10"/>
+				<pos x="200" y="390"/>
 				<size width="350" height="40"/>
 				<text format="%Title" size="24" color="#ffffff" weight="bold" align="left" scroll="yes"/>
 			</textzone>
 			<textzone>
-				<pos x="460" y="10"/>
+				<pos x="560" y="390"/>
 				<size width="80" height="40"/>
 				<text format="%Pbpmex" size="24" color="#00ffcc" weight="bold" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="550" y="10"/>
+				<pos x="650" y="390"/>
 				<size width="80" height="40"/>
 				<text format="%key" size="24" color="#00ffcc" align="left"/>
 			</textzone>
 			<textzone>
-				<pos x="640" y="10"/>
+				<pos x="740" y="390"/>
 				<size width="110" height="40"/>
 				<text action="get_time 'remain'" size="28" color="#ffffff" weight="bold" align="right"/>
 			</textzone>
 
 			<songpos>
-				<pos x="100" y="60"/>
+				<pos x="200" y="440"/>
 				<size width="650" height="30"/>
 				<colors color="#555555" pos="#00ffcc"/>
 			</songpos>
 
 			<!-- Contextual Buttons Deck 1 -->
-			<group visibility="var '$show_performance' 1">
+			<panel visible="var '$show_performance' 1">
 				<button action="play_pause">
-					<pos x="760" y="10"/>
+					<pos x="860" y="390"/>
 					<size width="60" height="80"/>
 					<off color="#222222" shape="square"/>
 					<text format="PLAY" size="16" color="#00ff00" weight="bold" align="center"/>
 				</button>
 				<button action="cue">
-					<pos x="830" y="10"/>
+					<pos x="930" y="390"/>
 					<size width="60" height="80"/>
 					<off color="#222222" shape="square"/>
 					<text format="CUE" size="16" color="#ffaa00" weight="bold" align="center"/>
 				</button>
-			</group>
-			<group visibility="var '$show_browser' 1">
+			</panel>
+			<panel visible="var '$show_browser' 1">
 				<button action="load">
 					<pos x="890" y="390"/>
 					<size width="100" height="80"/>
 					<off color="#333333" shape="square"/>
 					<text format="LOAD 1" size="20" color="#ffffff" weight="bold" align="center"/>
 				</button>
-			</group>
+			</panel>
 		</deck>
 
 		<!-- Deck 2 Mini -->
 		<deck deck="right">
 			<!-- Contextual Buttons Deck 2 -->
-			<group visibility="var '$show_performance' 1">
+			<panel visible="var '$show_performance' 1">
 				<button action="cue">
 					<pos x="1030" y="390"/>
 					<size width="60" height="80"/>
@@ -180,15 +180,15 @@
 					<off color="#222222" shape="square"/>
 					<text format="PLAY" size="16" color="#00ff00" weight="bold" align="center"/>
 				</button>
-			</group>
-			<group visibility="var '$show_browser' 1">
+			</panel>
+			<panel visible="var '$show_browser' 1">
 				<button action="load">
 					<pos x="1030" y="390"/>
 					<size width="100" height="80"/>
 					<off color="#333333" shape="square"/>
 					<text format="LOAD 2" size="20" color="#ffffff" weight="bold" align="center"/>
 				</button>
-			</group>
+			</panel>
 
 			<!-- Mirrored Info -->
 			<songpos>
@@ -223,6 +223,6 @@
 				<size width="80" height="80"/>
 			</cover>
 		</deck>
-	</group>
+	</panel>
 
 </Skin>
